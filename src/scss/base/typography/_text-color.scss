@@ -1,0 +1,23 @@
+.text {
+	&-primary {
+		color: var(--color-primary);
+	}
+	&-muted {
+		color: var(--text-color-muted);
+	}
+	&-white {
+		color: var(--color-white);
+		--button-color: var(--color-dark);
+		--button-color-hover: var(--text-white);
+		--button-background-color: var(--color-white);
+		--button-background-color-hover: var(--color-dark);
+		--button-border-color-hover: transparent;
+		select {
+			background-image: var(--icon-light);
+		}
+	}
+}
+
+.color-scheme-opposite {
+	color: var(--text-color);
+}

@@ -1,0 +1,32 @@
+@mixin ratio($width: 16, $height: 9) {
+  $percentage: calc(($height / $width) * 100%);
+  padding-bottom: $percentage;
+}
+
+%ratio {
+  display: block;
+  position: relative;
+}
+
+.ratio {
+  &-21-9 {
+    @extend %ratio;
+    @include ratio(21, 9);
+  }
+  &-16-9 {
+    @extend %ratio;
+    @include ratio(16, 9);
+  }
+  &-4-3 {
+    @extend %ratio;
+    @include ratio(4, 3);
+  }
+  &-1-1 {
+    @extend %ratio;
+    @include ratio(1, 1);
+  }
+  &-5-6 {
+    @extend %ratio;
+    @include ratio(5, 6);
+  }
+}

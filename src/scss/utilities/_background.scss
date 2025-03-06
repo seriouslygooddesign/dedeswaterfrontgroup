@@ -1,0 +1,11 @@
+.bg {
+	&-surface {
+		background: var(--color-surface);
+	}
+	&-light {
+		background: var(--color-light);
+	}
+	&-gradient-dark {
+		background: var(--color-gradient-dark);
+	}
+}

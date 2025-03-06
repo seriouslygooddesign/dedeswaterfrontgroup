@@ -1,0 +1,26 @@
+[data-animate] {
+  opacity: 0;
+  transition: opacity var(--animate-transition),
+    translate var(--animate-transition);
+  &.animate-show {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+[data-animate="up"] {
+  translate: 0 var(--animate-distance);
+}
+[data-animate="down"] {
+  translate: 0 calc(var(--animate-distance) * -1);
+}
+[data-animate="left"] {
+  translate: var(--animate-distance) 0;
+}
+[data-animate="right"] {
+  translate: calc(var(--animate-distance) * -1) 0;
+}
+@for $i from 1 through 5 {
+  [data-animate-delay="#{$i * 100}"] {
+    transition-delay: #{$i * 100}ms;
+  }
+}

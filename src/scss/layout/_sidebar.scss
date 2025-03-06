@@ -1,0 +1,22 @@
+.site-sidebar {
+	padding: var(--spacer-3);
+	background-color: var(--color-surface);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacer-3);
+	&__title {
+		margin-top: 0;
+	}
+	&__widget {
+		:last-child {
+			margin-bottom: 0;
+		}
+		&:not(.widget_text) {
+			ul,
+			ol {
+				@include reset-list;
+				padding: 0;
+			}
+		}
+	}
+}

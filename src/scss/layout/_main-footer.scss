@@ -1,0 +1,33 @@
+.main-footer {
+	position: relative;
+	z-index: 1;
+	a:not([class]) {
+		display: inline-block;
+	}
+	.menu {
+		@include reset-list;
+
+		padding: 0;
+		.menu-item {
+			margin-top: calc(var(--element-spacer) / 1.25);
+		}
+		.menu-link {
+			text-transform: uppercase;
+			color: inherit;
+			@include target-space;
+		}
+		.sub-menu {
+			@include reset-list;
+			padding-left: 1em;
+		}
+	}
+}
+
+.has-sticky-footer {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	.main-footer {
+		margin-top: auto;
+	}
+}

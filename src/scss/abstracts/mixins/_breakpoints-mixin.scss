@@ -1,0 +1,19 @@
+@use "sass:map";
+
+$combined-breakpoints: map-merge($grid-breakpoints, $breakpoints-extra);
+
+@mixin bp($breakpoint: md, $minmax: min) {
+  @if ($breakpoint) {
+    $breakpoint-value: map-get($combined-breakpoints, $breakpoint);
+
+    @if ($minmax == max) {
+      $breakpoint-value: #{map-get($combined-breakpoints, $breakpoint) - 0.02};
+    }
+
+    @media (#{$minmax}-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

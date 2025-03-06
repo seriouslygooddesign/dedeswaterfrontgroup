@@ -1,0 +1,12 @@
+.skip-link {
+  position: fixed;
+  left: var(--container-spacer);
+  top: calc(var(--header-height) + var(--container-spacer));
+  background-color: var(--color-white);
+  font-weight: bold;
+  padding: 1rem;
+  z-index: 1000;
+  &:not(:focus-visible) {
+    @include screen-reader-text;
+  }
+}

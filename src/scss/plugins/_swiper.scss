@@ -1,0 +1,87 @@
+$themeColor: var(--color-primary);
+@import "swiper/scss";
+@import "../abstracts/mixins/mixins";
+@import "swiper/scss/effect-fade";
+@import "../abstracts/variables";
+@import "../abstracts/mixins/breakpoints-mixin";
+
+.swiper {
+	&--center &-wrapper {
+		align-items: center;
+	}
+	&--off-canvas {
+		overflow: visible;
+	}
+	&-pagination-fraction {
+		--min-width: 4.5em;
+		min-width: var(--min-width);
+		user-select: none;
+		text-align: center;
+	}
+	&-fade {
+		.swiper-slide:not(.swiper-slide-active) {
+			opacity: 0 !important;
+		}
+	}
+	&-pagination-bullets {
+		--gap: 0.875rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: var(--gap);
+		margin: 0 var(--gap);
+	}
+
+	&-pagination-bullet {
+		--size: 0.4rem;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 100%;
+		background-color: currentColor;
+		transition: opacity var(--transition);
+		@include target-space(18px);
+		&:not(#{&}-active) {
+			opacity: 0.1;
+		}
+	}
+
+	&-pagination-clickable &-pagination-bullet {
+		cursor: pointer;
+	}
+
+	&-button-lock,
+	&-pagination-lock {
+		display: none;
+	}
+	&--layout-row {
+		@include bp(xl) {
+			display: grid;
+			grid-template-columns: 1fr calc(100% - var(--button-height) * 2 - var(--element-spacer) * 4) 1fr;
+			.swiper {
+				&-wrapper {
+					grid-column: 2;
+				}
+				&-navigation {
+					grid-column: 3;
+				}
+				&-slide {
+					width: 100% !important;
+				}
+			}
+		}
+	}
+	&-navigation {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--element-spacer-sm);
+		margin-block: var(--element-spacer);
+		&--inside {
+			position: absolute;
+			bottom: 0;
+			right: var(--element-spacer);
+			z-index: 1;
+		}
+	}
+}

@@ -1,0 +1,1 @@
+<p class="fs-sm m-0"><?= get_the_date(); ?></p>

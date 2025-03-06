@@ -1,0 +1,20 @@
+a {
+  color: var(--link-color);
+  background-color: transparent;
+  @include underline;
+  @include underline--default;
+  transition: color var(--transition), text-decoration-color var(--transition);
+
+  &:hover {
+    --link-color: var(--link-color-hover);
+  }
+  &[href^="mailto:"] {
+    overflow-wrap: anywhere;
+  }
+}
+
+.underline-reverse {
+  a {
+    @include underline--reverse;
+  }
+}

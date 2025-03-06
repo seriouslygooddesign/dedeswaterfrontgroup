@@ -1,0 +1,60 @@
+.element-my {
+  margin: var(--element-spacer) 0;
+}
+
+.element-my-sm {
+  margin: var(--element-spacer-sm) 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
+
+.section-py,
+.section-pt {
+  padding-top: var(--section-spacer);
+}
+
+.section-py,
+.section-pb {
+  padding-bottom: var(--section-spacer);
+}
+
+.container-py,
+.container-pt {
+  padding-top: var(--container-spacer);
+}
+
+.container-py,
+.container-pb {
+  padding-bottom: var(--container-spacer);
+}
+
+.gap {
+  &-element {
+    gap: var(--element-spacer);
+  }
+  &-element-sm {
+    gap: var(--element-spacer-sm);
+  }
+  @each $name, $value in $spacers {
+    &-#{$name} {
+      gap: var(--spacer-#{$name});
+    }
+  }
+}

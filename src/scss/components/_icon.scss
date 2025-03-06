@@ -1,0 +1,27 @@
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--icon-color);
+  display: inline-flex;
+  flex: none;
+}
+
+.icon-holder {
+  color: var(--icon-holder-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-holder-size);
+  height: var(--icon-holder-size);
+  background-color: var(--icon-holder-background-color);
+  border-radius: var(--icon-holder-radius);
+  flex-shrink: 0;
+  transition: background-color var(--transition);
+  .icon {
+    transition: color var(--transition);
+  }
+  a:hover & {
+    --icon-holder-color: var(--icon-holder-color-hover);
+    --icon-holder-background-color: var(--icon-holder-background-color-hover);
+  }
+}

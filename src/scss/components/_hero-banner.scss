@@ -1,0 +1,13 @@
+.hero-banner {
+    &__title {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

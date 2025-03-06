@@ -1,0 +1,50 @@
+::selection {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+mark {
+  background: none;
+}
+
+address {
+  font-style: normal;
+  line-height: inherit;
+}
+
+abbr[title] {
+  text-decoration: none;
+  cursor: help;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+pre {
+  code {
+    font-size: inherit;
+    color: inherit;
+    word-break: normal;
+  }
+}

@@ -1,0 +1,19 @@
+@mixin underline {
+  text-decoration: underline;
+  text-underline-offset: 20%;
+  text-decoration-thickness: var(--border-width);
+}
+
+@mixin underline--default {
+  text-decoration-color: currentColor;
+  &:hover {
+    text-decoration-color: transparent;
+  }
+}
+
+@mixin underline--reverse {
+  text-decoration-color: transparent;
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}

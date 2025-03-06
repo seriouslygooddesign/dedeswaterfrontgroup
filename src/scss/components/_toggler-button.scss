@@ -1,0 +1,22 @@
+.toggler-button {
+  min-height: var(--header-height);
+  line-height: var(--lh-none);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 var(--container-spacer) 0 0;
+  margin-right: calc(var(--container-spacer) * -1);
+  display: flex;
+  align-items: center;
+  &,
+  &:hover {
+    color: inherit;
+    background: none;
+    border: none;
+  }
+  &__icon {
+    --icon-size: var(--fs-xl);
+  }
+  &__label {
+    font-size: var(--fs-sm);
+  }
+}

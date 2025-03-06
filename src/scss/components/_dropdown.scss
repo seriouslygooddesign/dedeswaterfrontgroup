@@ -1,0 +1,17 @@
+.dropdown {
+  @include dropdown;
+  &__menu {
+    @include dropdown__menu;
+  }
+  @include device-input(touch) {
+    &.active > &__menu {
+      @include dropdown__menu--visible;
+    }
+  }
+
+  @include device-input(mouse) {
+    &:hover > &__menu {
+      @include dropdown__menu--visible;
+    }
+  }
+}

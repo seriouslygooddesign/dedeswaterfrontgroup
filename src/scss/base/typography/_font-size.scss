@@ -1,0 +1,27 @@
+small {
+  font-size: var(--fs-sm);
+}
+
+.fs {
+  &-xs {
+    font-size: var(--fs-xs);
+  }
+  &-sm {
+    font-size: var(--fs-sm);
+  }
+  &-lg {
+    font-size: var(--fs-lg);
+  }
+  &-xl {
+    font-size: var(--fs-xl);
+  }
+  &-2xl {
+    font-size: var(--fs-2xl);
+  }
+  &-one-column {
+    font-size: clamp-smart(1rem, 1.125rem);
+  }
+  &-inherit {
+    font-size: inherit;
+  }
+}

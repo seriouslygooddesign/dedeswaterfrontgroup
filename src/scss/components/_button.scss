@@ -1,0 +1,35 @@
+.button {
+	@include button;
+
+	&:hover {
+		@include button--hover;
+	}
+
+	&--sm {
+		@include button--sm;
+	}
+
+	&--outline {
+		@include button--outline;
+	}
+
+	&--white {
+		@include button--white;
+	}
+
+	&--square {
+		padding: 0;
+		min-width: var(--button-height);
+		border-radius: 0;
+	}
+
+	&--transparent:not(:hover) {
+		--button-background-color: transparent;
+		--button-border-color: transparent;
+		--button-color: currentColor;
+	}
+}
+
+p a.button:has(+ a.button) {
+	margin-bottom: 0.25rem;
+}

@@ -1,0 +1,136 @@
+@mixin screen-reader-text() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin vstack {
+  display: flex;
+  flex-direction: column;
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@mixin hstack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@mixin stretch($position: absolute) {
+  position: $position;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Hover only for mouse users, focus only for keyboard
+@mixin hover($focus: null) {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if $focus == focus {
+    &:focus-visible {
+      @content;
+    }
+  }
+}
+
+// Invisible space for better link and button select
+@mixin target-space($size: 44px, $width: 100%, $height: 100%) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: $width;
+    height: $height;
+    min-width: $size;
+    min-height: $size;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+}
+
+//@url: Base64-encoded Data URI. Example: url("data:image/svg+xml..."). Encode online - https://yoksel.github.io/url-encoder/
+@mixin mask-icon($url) {
+  content: "";
+  mask-image: $url;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--icon-color);
+}
+
+@mixin element-hidden() {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    grid-template-rows var(--transition),
+    opacity var(--transition),
+    visibility var(--transition);
+}
+
+@mixin element-visible() {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+//check device input type
+@mixin device-input($type) {
+  @if $type == touch {
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  } @else if $type == mouse {
+    @media (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  } @else if $type {
+    @error "Device input type is INVALID. Device input types: touch, mouse";
+  }
+}
+
+@mixin font-face($font-family, $font-file-name, $font-weight: 400, $font-style: normal) {
+  $font-file-path: "../../fonts/";
+  @font-face {
+    font-family: $font-family;
+    src:
+      url($font-file-path + $font-file-name + ".woff2") format("woff2"),
+      url($font-file-path + $font-file-name + ".woff") format("woff");
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+
+@mixin trim-margin() {
+  & > :first-child {
+    margin-top: 0;
+  }
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}

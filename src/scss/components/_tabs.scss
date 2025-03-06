@@ -1,0 +1,49 @@
+$bp: md;
+
+.tabs {
+	&__tab {
+		--button-border-color: var(--border-color);
+		--button-border-color-hover: currentColor;
+
+		--button-background-color: transparent;
+		--button-background-color-hover: transparent;
+
+		--button-color: currentColor;
+		--button-color-hover: currentColor;
+		margin: 0 !important;
+		text-align: left;
+		justify-content: flex-start;
+		&.active {
+			--button-background-color: var(--color-white);
+			--button-color: var(--color-primary);
+			--button-border-color-hover: transparent;
+		}
+		@include bp($bp, max) {
+			max-width: 85%;
+			flex: none;
+		}
+	}
+	&__tablist {
+		display: flex;
+		row-gap: var(--element-spacer-sm);
+		column-gap: var(--spacer-1);
+
+		@include bp($bp, max) {
+			padding: 0 var(--container-spacer);
+			margin: 0 calc(var(--container-spacer) * -1);
+			overflow-x: auto;
+			scroll-behavior: smooth;
+			padding-bottom: var(--element-spacer);
+		}
+
+		@include bp($bp) {
+			flex-direction: column;
+		}
+	}
+	&__content {
+		overflow: hidden;
+		> :first-child {
+			margin-top: 0;
+		}
+	}
+}

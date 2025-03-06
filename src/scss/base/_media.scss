@@ -1,0 +1,41 @@
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-style: none;
+  vertical-align: middle;
+}
+
+.img-fluid {
+  width: 100%;
+  img {
+    width: inherit;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+video {
+  object-fit: cover;
+}
+
+.wp-caption {
+  max-width: 100%;
+  margin: var(--element-spacer) 0;
+  .wp-caption-text {
+    font-size: var(--fs-sm);
+    margin-top: var(--element-spacer-sm);
+  }
+}

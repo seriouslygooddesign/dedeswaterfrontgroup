@@ -1,0 +1,28 @@
+%heading-base {
+	font-weight: normal;
+	line-height: var(--lh-sm);
+	font-family: var(--ff-secondary);
+	text-transform: uppercase;
+}
+
+$i: 6;
+@while $i >= 1 {
+	h#{$i},
+	.h#{$i} {
+		font-size: var(--h#{$i});
+		@extend %heading-base;
+		@if $i == 1 {
+			line-height: var(--lh-xs);
+		}
+		@if $i == 6 {
+			font-family: var(--ff-primary);
+		}
+	}
+	$i: $i - 1;
+}
+
+.display-1 {
+	@extend %heading-base;
+	font-size: var(--display-1);
+	line-height: var(--lh-xs);
+}

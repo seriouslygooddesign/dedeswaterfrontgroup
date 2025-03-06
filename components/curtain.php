@@ -1,0 +1,1 @@
+<div class="curtain stretch"></div>

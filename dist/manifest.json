@@ -1,0 +1,18 @@
+{
+  "main.css": "/dist/main/main.92eaa2ad9003ed8332ec.css",
+  "main.js": "/dist/main/main.3c8be48f99ab29a84dac.js",
+  "swiper.css": "/dist/swiper/swiper.38955f3570fb59f00851.css",
+  "swiper.js": "/dist/swiper/swiper.aaf31c790c04e7d49772.js",
+  "sprite.js": "/dist/sprite/sprite.1808ba0add18409de5be.js",
+  "admin.css": "/dist/admin/admin.18a468ed4b9231a3ccf4.css",
+  "admin.js": "/dist/admin/admin.53173798843d38baf2f0.js",
+  "parallax.js": "/dist/parallax/parallax.60e8ec58cbe54af24f37.js",
+  "main.css.map": "/dist/main/main.92eaa2ad9003ed8332ec.css.map",
+  "main.js.map": "/dist/main/main.3c8be48f99ab29a84dac.js.map",
+  "swiper.css.map": "/dist/swiper/swiper.38955f3570fb59f00851.css.map",
+  "swiper.js.map": "/dist/swiper/swiper.aaf31c790c04e7d49772.js.map",
+  "sprite.js.map": "/dist/sprite/sprite.1808ba0add18409de5be.js.map",
+  "admin.css.map": "/dist/admin/admin.18a468ed4b9231a3ccf4.css.map",
+  "admin.js.map": "/dist/admin/admin.53173798843d38baf2f0.js.map",
+  "parallax.js.map": "/dist/parallax/parallax.60e8ec58cbe54af24f37.js.map"
+}

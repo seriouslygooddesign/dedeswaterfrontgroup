@@ -1,0 +1,39 @@
+.post-date {
+  display: block;
+  font-size: var(--fs-sm);
+}
+
+.alignleft {
+  float: left;
+  margin-right: var(--element-spacer);
+  margin-bottom: var(--element-spacer);
+}
+
+.alignright {
+  float: right;
+  margin-left: var(--element-spacer);
+  margin-bottom: var(--element-spacer);
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#error-page {
+  max-width: none !important;
+}
+
+form.post-password-form {
+  input[type="password"] {
+    margin-bottom: 0.25rem;
+  }
+  input[type="submit"] {
+    @include button;
+    &:hover {
+      @include button--hover;
+    }
+  }
+}

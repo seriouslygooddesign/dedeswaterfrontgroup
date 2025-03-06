@@ -1,0 +1,38 @@
+@function round-smart($value, $decimals: 1000) {
+  @return calc(round($value * $decimals) / $decimals);
+}
+
+//Convert value and remove unit (em, rem, px)
+@function value-without-unit($value) {
+  @if (unit($value) == "em") {
+    @return calc($value / 1em * 16);
+  } @else if (unit($value) == "rem") {
+    @return calc($value / 1rem * 16);
+  } @else if (unit($value) == "px") {
+    @return calc($value / 1px);
+  } @else {
+    @error "Use REM, EM or PX";
+  }
+}
+
+@function clamp-smart($min, $max, $start: 375px, $end: 1600px) {
+  //Get initial min and max values
+  $min-result: #{round-smart($min)};
+  $max-result: #{round-smart($max)};
+
+  //Convert values and remove units
+  $min: value-without-unit($min);
+  $max: value-without-unit($max);
+  $start: value-without-unit($start);
+  $end: value-without-unit($end);
+
+  //Get start result
+  $start-result: calc(($start * $max - $end * $min) / ($start - $end) / 16);
+  $start-result: #{round-smart($start-result)}rem;
+
+  //Get end result
+  $end-result: calc((100 * ($max - $min)) / ($end - $start));
+  $end-result: #{round-smart($end-result)}vw;
+
+  @return clamp($min-result, $start-result + $end-result, $max-result);
+}
