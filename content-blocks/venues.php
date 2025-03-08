@@ -72,9 +72,9 @@ foreach ($venues as $index => $post) : setup_postdata($post);
     }
 
     $card_args = array(
-        'footer_content' => null,
         'card_link' => $venue_link,
-        'title_extra_class' => 'h6'
+        'title_extra_class' => 'h6',
+        'card_link_target' => '_blank'
     );
 
     if ($layout_overlap) {
@@ -88,10 +88,12 @@ foreach ($venues as $index => $post) : setup_postdata($post);
 
         $vanue_link_args['title'] = 'Visit Vebsite';
 
-        $card_args['footer_content'] = [
-            'left' => get_core_link($venue_secondary_link_args),
-            'right' => "<div class='row align-items-center gy-4 justify-content-between'>" . get_core_link($vanue_link_args, null, '<div class="col-auto uppercase">', '</div>') . ' ' . get_core_link($venue_address_args, null, '<div class="col-auto hstack align-items-center gap-1">' . get_core_icon('pin') . '', '</div>') . "</div>",
-        ];
+        $venue_link_output = get_core_link($vanue_link_args, null, '<div class="col-auto uppercase">', '</div>');
+        $venue_address_output = get_core_link($venue_address_args, null, '<div class="col-auto hstack align-items-center gap-1">' . get_core_icon('pin') . '', '</div>');
+        $left = get_core_link($venue_secondary_link_args, 'button', "<div class='col-md-auto'>", "</div>");
+        $right = "<div class='col-xl'><div class='row align-items-center gy-4 justify-content-between'>$venue_link_output $venue_address_output</div></div>";
+
+        $card_args['footer_content'] = "<div class='row align-items-center gy-4'>$left$right</div>";
 
         $gallery = get_field('gallery');
         if ($gallery) {

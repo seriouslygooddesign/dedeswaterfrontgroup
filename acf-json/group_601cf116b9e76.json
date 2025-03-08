@@ -187,6 +187,7 @@
                                 "id": ""
                             },
                             "choices": {
+                                "light": "<span class=\"color-preview\" style=\"--color: var(--color-light)\"><\/span> Light",
                                 "gradient-dark": "<span class=\"color-preview\" style=\"--color: var(--color-gradient-dark)\"><\/span> Blue Gradient",
                                 "custom": "Custom"
                             },
@@ -543,5 +544,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741264019
+    "modified": 1741348897
 }

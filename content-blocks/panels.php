@@ -17,7 +17,7 @@ if (have_rows('panels')) : ?>
             if ($has_content || $has_bg) :
                 $col_class = get_core_filter_implode([
                     'col-md-6 pos-rel section-py d-flex',
-                    $has_bg ? "has-bg" : null,
+                    $has_bg ? "has-bg overflow-hidden" : null,
                     $has_content ? get_core_vertical_align() : null,
                 ]);
         ?>

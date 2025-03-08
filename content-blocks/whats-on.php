@@ -82,7 +82,6 @@ get_template_part('components/block', 'header', ['class' => 'container']);
                 $card_args = [
                     'content' => $content,
                     'card_link' => $card_link,
-                    'footer_content' => false
                 ];
             } else {
                 $title = $post['name'];
@@ -95,7 +94,6 @@ get_template_part('components/block', 'header', ['class' => 'container']);
                     'title' => $title,
                     'content' => '',
                     'card_link' => $link,
-                    'footer_content' => '',
                     'image_holder_class' => 'card__img-holder--restrict'
                 ];
             }
@@ -108,5 +106,8 @@ get_template_part('components/block', 'header', ['class' => 'container']);
         wp_reset_postdata(); ?>
     </div>
 </div>
-<?php get_template_part('components/block', 'end');
+
+<?php
+get_template_part('components/block', 'footer', ['class' => 'container']);
+get_template_part('components/block', 'end');
 restore_current_blog();

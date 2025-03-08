@@ -216,28 +216,6 @@
             ]
         },
         {
-            "key": "field_678a6cfe1cfd6",
-            "label": "",
-            "name": "",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_620f99eb3a9b1"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_678a6cfe20a78",
             "label": "Settings",
             "name": "",
@@ -298,5 +276,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741268050
+    "modified": 1741345096
 }

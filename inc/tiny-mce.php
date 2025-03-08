@@ -20,38 +20,32 @@ function core_tiny_mce_before_init($settings)
             'items' => array(
                 array(
                     'title' => 'H1',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h1']
                 ),
                 array(
                     'title' => 'H2',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h2']
                 ),
                 array(
                     'title' => 'H3',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h3']
                 ),
                 array(
                     'title' => 'H4',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h4']
                 ),
                 array(
                     'title' => 'H5',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h5']
                 ),
                 array(
                     'title' => 'H6',
-                    // 'selector' => $tag_selectors,
-                    'inline' => 'span',
+                    'selector' => $tag_selectors,
                     'attributes' => ['class' => 'h6']
                 ),
             ),
@@ -94,16 +88,10 @@ function core_tiny_mce_before_init($settings)
             'title' => 'Vertical Line',
             'block' => 'div',
             'classes' => 'vertical-line',
-            // 'wrapper' => true,
         ),
-        // array(
-        //     'title' => 'Vertical Line',
-        //     'inline' => 'span',
-        //     'classes' => 'vertical-line'
-        // ),
         array(
             'title' => 'Text Label',
-            // 'selector' => $tag_selectors,
+            'selector' => $tag_selectors,
             'inline' => 'span',
             'attributes' => ['class' => 'text-label']
         ),

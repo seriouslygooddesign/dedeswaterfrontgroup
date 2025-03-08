@@ -110,10 +110,15 @@
 			z-index: 1;
 			opacity: 0;
 			visibility: hidden;
-			transition: opacity var(--transition), visibility var(--transition);
+			translate: 0 -2em;
+			transition: translate var(--transition), opacity var(--transition), visibility var(--transition);
 			&.active {
 				opacity: 1;
+				translate: 0;
 				visibility: visible;
+				~ * {
+					translate: 0 2em;
+				}
 			}
 		}
 		&__images {

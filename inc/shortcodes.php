@@ -101,13 +101,14 @@ add_shortcode('testimonials', function () {
 
         if ($posts) {
             foreach ($posts as $post) : setup_postdata($post);
+                $icon = ($icon = get_core_image(get_post_thumbnail_id($post), IMG_SIZE_XS, 'rounded-image')) ? "<div class='col-auto'>$icon</div>" : null;
+                $title = ($title = esc_html(get_the_title($post))) ? "<div class='col-md'><div class='row g-3 align-items-center uppercase'>$icon<div class='col'>$title</div></div></div>" : null;
+                $link = get_core_link(['title' => $site_name, 'url' => $site_url, 'target' => '_blank'], 'uppercase', "<div class='col-md'><div class='vstack gap-0 text-right'><span class='text-muted'>Venue: </span>", "</div></div>");
+
                 $args = [
                     'title' => false,
                     'content' => apply_filters('the_content', get_the_content()),
-                    'footer_content' => [
-                        'left' => "<div class='hstack gap-3 align-items-center uppercase'>" . get_core_image(get_post_thumbnail_id($post), IMG_SIZE_XS, 'rounded-image') . get_the_title($post) . "</div>",
-                        'right' => "<div class='vstack gap-0 text-right'><span class='text-muted'>Venue: </span>" . get_core_link(['title' => $site_name, 'url' => $site_url, 'target' => '_blank'], 'uppercase') . "</div>",
-                    ]
+                    'footer_content' => "<div class='row'>$title$link</div>"
                 ];
 
                 $contents .= "<div class='swiper-slide'>";

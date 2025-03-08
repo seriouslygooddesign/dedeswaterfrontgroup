@@ -5,7 +5,7 @@ $venues = get_posts([
 ]);
 if (!$venues) return; ?>
 <div class="spacer-section-py-half fs-sm">
-    <div class="row g-4 row-cols-sm-2 row-cols-lg-4 justify-content-center">
+    <div class="row g-4 row-cols-sm-2 row-cols-lg-4">
         <?php
         foreach ($venues as $post) : setup_postdata($post);
             $link = [
@@ -18,7 +18,6 @@ if (!$venues) return; ?>
                 'card_link' => $link['url'],
                 'title_extra_class' => 'h6',
                 'content' => apply_filters('the_content', get_the_excerpt()),
-                'footer_content' => null
             ); ?>
             <div class="col-12" data-animate>
                 <?php get_template_part('components/card', null, $args); ?>
