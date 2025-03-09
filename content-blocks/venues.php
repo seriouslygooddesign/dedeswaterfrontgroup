@@ -114,7 +114,7 @@ endforeach;
 wp_reset_postdata();
 
 $block_args = [
-    'class' => !$layout_overlap ? 'section-py min-height-full-x3' : null,
+    'class' => !$layout_overlap ? 'section-py min-height-custom' : null,
     'attr' => !$layout_overlap ? 'data-lax-slider' : 'data-lax-fade-offset-y',
 ];
 
@@ -133,7 +133,7 @@ get_template_part('components/block', 'start', $block_args);
         </div>
     </div>
 <?php else: ?>
-    <div class="layout-overflow pos-sticky overflow-hidden">
+    <div class="layout-overflow overflow-hidden">
         <?php get_template_part('components/block', 'header', ['class' => 'layout-overflow__header container']); ?>
         <div class="layout-overflow__body">
             <div class=" layout-overflow__content">

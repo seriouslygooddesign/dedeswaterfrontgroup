@@ -85,8 +85,10 @@ const handlerLax = () => {
 	});
 };
 
-window.addEventListener("resize", handlerLax);
-handlerLax();
+if (!("ontouchstart" in window || navigator.maxTouchPoints > 0)) {
+	window.addEventListener("resize", handlerLax);
+	handlerLax();
+}
 
 function generateGradient(progress, numBands = 30) {
 	const step = 100 / numBands;
