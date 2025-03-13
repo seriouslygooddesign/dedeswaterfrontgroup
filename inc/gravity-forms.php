@@ -23,7 +23,6 @@ add_action('wp_head', function () {
         --gf-color-danger: var(--color-danger);
         --gf-ctrl-label-color-tertiary: var(--color-white-muted);
         --gf-ctrl-desc-color: var(--color-white-muted);
-        --gf-color-secondary-darker: var(--color-white);
         }
  
     ";
