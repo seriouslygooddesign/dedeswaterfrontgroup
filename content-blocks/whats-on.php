@@ -27,6 +27,7 @@ if ($feed_type_featured_events) {
     foreach ($venues as $post) {
         setup_postdata($post);
         $site_id = get_field('related_site_id');
+        if (!$site_id) continue;
         $posts[] = [
             'name' => get_the_title(),
             'url' => get_blog_details($site_id)->siteurl . "/" . WHATS_ON_URL_PREFIX,

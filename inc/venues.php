@@ -5,6 +5,7 @@ function custom_acf_fields()
 {
 
     $sites = get_sites();
+    $current_site_id = get_current_blog_id();
     if (!$sites && count($sites) >= 1) {
         return;
     }
@@ -15,7 +16,7 @@ function custom_acf_fields()
         $id = $site->blog_id;
 
         //skip main site
-        if ($id === '1') {
+        if ($id === '1' || $id === "$current_site_id") {
             continue;
         }
 
