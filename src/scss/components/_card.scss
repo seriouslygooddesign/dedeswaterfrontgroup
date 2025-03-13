@@ -32,6 +32,8 @@
 			column-gap: var(--element-spacer-sm);
 			&-img {
 				grid-area: logo;
+				max-height: 6em;
+				width: auto;
 			}
 			& > * {
 				&:not(.card__title):not(.card__content-img) {
