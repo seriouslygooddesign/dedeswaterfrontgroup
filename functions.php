@@ -11,6 +11,7 @@ require get_template_directory() . '/inc/tiny-mce.php';
 require get_template_directory() . '/inc/gallery.php';
 require get_template_directory() . '/inc/gravity-forms.php';
 require get_template_directory() . '/inc/popups.php';
+require get_template_directory() . '/inc/venues.php';
 
 /**
  * Theme Setup

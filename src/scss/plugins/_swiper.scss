@@ -85,3 +85,16 @@ $themeColor: var(--color-primary);
 		}
 	}
 }
+
+.gallery-stretch {
+	.swiper {
+		height: 100%;
+		margin-bottom: 0;
+		&-wrapper {
+			img {
+				aspect-ratio: 4 / 3;
+				height: 100%;
+			}
+		}
+	}
+}

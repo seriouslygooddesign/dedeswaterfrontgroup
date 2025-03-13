@@ -12,13 +12,14 @@ function custom_gallery($output, $attr)
         $slides_per_view = isset($attr['columns']) ? intval($attr['columns']) : 3;
         $size = $attr['size'] ?? IMG_SIZE_XS;
         $link = $attr['link'] ?? 'attachment';
+        $autoheight = $attr['autoheight'] ?? true;
         $link_none = $link === 'none';
 
         $swiper_parameters = [
             "slidesPerView" => 1,
             "spaceBetween" => 20,
             "loop" => true,
-            "autoHeight" => true,
+            "autoHeight" => boolval($autoheight),
         ];
         if ($slides_per_view >= 4) {
             $swiper_parameters["slidesPerView"] = 2;
@@ -32,26 +33,17 @@ function custom_gallery($output, $attr)
         }
 
         $swiper_parameters = json_encode($swiper_parameters);
-        $output = "<div class='swiper swiper--center' data-swiper='$swiper_parameters'><div class='swiper-wrapper'>";
+        $photoswipe_attrs = !$link_none ? ' data-photoswipe' : null;
+        $output = "<div class='swiper swiper--center' data-swiper='$swiper_parameters'$photoswipe_attrs><div class='swiper-wrapper'>";
 
         foreach ($images as $image) {
             $image_id = $image->ID;
             $output .= "<figure class='swiper-slide text-center'>";
-            if (!$link_none) {
-                $href = get_attachment_link($image_id);
-                $target = '_self';
-                if ($link === 'file') {
-                    $href = wp_get_attachment_image_src($image->ID, $size)[0];
-                    $target = '_blank';
-                }
-                $output .= "<a href='$href' target='$target'>";
+            if ($link_none) {
+                $output .= wp_get_attachment_image($image_id, $size, null, ['loading' => 'lazy']);
+            } else {
+                $output .= wp_get_attachment_link($image_id, $size);
             }
-            $output .= wp_get_attachment_image($image_id, $size);
-            if (!$link_none) {
-                $output .= "</a>";
-            }
-            $caption = wp_get_attachment_caption($image_id);
-            if ($caption) $output .= "<figcaption class='fs-sm'>$caption</figcaption>";
             $output .= "</figure>";
         }
 

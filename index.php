@@ -5,7 +5,8 @@ if (is_author()) {
 } else {
 	$page_for_posts = get_option('page_for_posts');
 	$page_header_args = [
-		'title' => is_home() ? get_the_title($page_for_posts) : get_the_archive_title(),
+		'title' => 'Stay in the Know with Dedes Group',
+		'label' => is_home() ? get_the_title($page_for_posts) : get_the_archive_title(),
 		'img_id' => is_home() || is_category() || is_tax() ? get_post_thumbnail_id($page_for_posts) : false,
 	];
 	get_template_part('components/page-header', null, $page_header_args);

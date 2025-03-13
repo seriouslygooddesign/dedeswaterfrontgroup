@@ -80,14 +80,26 @@ function core_tiny_mce_before_init($settings)
             ),
         ),
         array(
+            'title' => 'Decor',
+            'items' => array(
+                array(
+                    'title' => 'Vertical Line Top',
+                    'block' => 'div',
+                    'wrapper' => true,
+                    'classes' => 'vertical-line vertical-line--top'
+                ),
+                array(
+                    'title' => 'Vertical Line Bottom',
+                    'block' => 'div',
+                    'wrapper' => true,
+                    'classes' => 'vertical-line vertical-line--bottom'
+                ),
+            ),
+        ),
+        array(
             'title' => 'Text Offset',
             'inline' => 'span',
             'classes' => 'text-offset'
-        ),
-        array(
-            'title' => 'Vertical Line',
-            'block' => 'div',
-            'classes' => 'vertical-line',
         ),
         array(
             'title' => 'Text Label',

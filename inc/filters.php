@@ -119,3 +119,21 @@ function core_custom_menu_order($menu_ord)
 }
 add_filter('custom_menu_order', 'core_custom_menu_order', 10, 1);
 add_filter('menu_order', 'core_custom_menu_order', 10, 1);
+
+function add_custom_attributes_to_gallery_links($link_html, $id, $size)
+{
+    $size = $size == '1536x1536' ? $size : 'medium_large';
+    $full_img_object = wp_get_attachment_image_src($id, '1536x1536');
+    $full_img_src = $full_img_object[0];
+    $full_img_width = $full_img_object[1];
+    $full_img_height = $full_img_object[2];
+    $preview_img = wp_get_attachment_image($id, $size, null, ['loading' => 'lazy']);
+
+    wp_enqueue_style('photoswipe', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.css', array(), '1.1.8');
+    wp_enqueue_script('photoswipe-core-module', get_template_directory_uri() . '/src/static-plugins/photoswipe/photoswipe.js', array(), '1.1.16');
+
+    $link_html = "<a data-cropped='true' data-pswp-width='$full_img_width' data-pswp-height='$full_img_height' href='$full_img_src'>$preview_img</a>";
+    return $link_html;
+}
+
+add_filter('wp_get_attachment_link', 'add_custom_attributes_to_gallery_links', 10, 6);

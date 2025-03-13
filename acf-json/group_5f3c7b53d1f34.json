@@ -368,6 +368,70 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_67d16974a8522": {
+                    "key": "layout_67d16974a8522",
+                    "name": "testimonials",
+                    "label": "Testimonials",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67d1697fa8525",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_64dca734d7f89"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_67d1c42c87cb0": {
+                    "key": "layout_67d1c42c87cb0",
+                    "name": "content-gallery",
+                    "label": "Content + Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67d1c43a87cb3",
+                            "label": "",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_65d342df29a1e"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -407,5 +471,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1741263965
+    "modified": 1741800636
 }

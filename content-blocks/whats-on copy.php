@@ -1,40 +1,58 @@
 <?php
 $feed_type_featured_events = get_sub_field('type') === 'featured';
 
-$posts = [];
+$sites_with_posts = [];
+$site_details = [];
+
+$posts_args = [
+    'post_type' => WHATS_ON_POST_TYPE_NAME,
+    'posts_per_page' => -1,
+];
 
 if ($feed_type_featured_events) {
-    $posts_args = [
-        'post_type' => WHATS_ON_POST_TYPE_NAME,
-        'posts_per_page' => -1,
-        'tax_query' => [
-            [
-                'taxonomy' => 'whats-on-category',
-                'field' => 'slug',
-                'terms' => 'featured-posts'
-            ]
+    $posts_args['tax_query'] = [
+        [
+            'taxonomy' => 'whats-on-category',
+            'field' => 'slug',
+            'terms' => 'featured-posts'
         ]
     ];
-    switch_to_blog(1);
-    $posts = get_posts($posts_args);
-    restore_current_blog();
-} else {
-    $venues = get_posts([
-        'post_type' => 'venue',
-        'posts_per_page' => -1,
-    ]);
+}
 
-    foreach ($venues as $post) {
-        setup_postdata($post);
-        $site_id = get_field('related_site_id');
-        $posts[] = [
-            'name' => get_the_title(),
-            'url' => get_blog_details($site_id)->siteurl . "/" . WHATS_ON_URL_PREFIX,
-            'featured_image' => get_core_image(get_post_thumbnail_id(), IMG_SIZE_LG, 'stretch card__img'),
-            'logo' => get_core_image(get_field('logo'), IMG_SIZE_SM, 'card__img-logo'),
-        ];
-        wp_reset_postdata();
+switch_to_blog(1);
+$posts = get_posts($posts_args);
+
+if (!$posts) return;
+
+if (!$feed_type_featured_events) {
+    foreach ($posts as $post) {
+        $list_of_websites = get_field('list_of_websites');
+        if ($list_of_websites && is_array($list_of_websites)) {
+            $sites_with_posts = array_merge($sites_with_posts, $list_of_websites);
+        }
     }
+
+    $sites_with_posts = array_unique($sites_with_posts);
+
+    foreach ($sites_with_posts as $site_id) {
+        switch_to_blog($site_id);
+        $whats_on_page = get_page_by_path(WHATS_ON_URL_PREFIX);
+
+        if ($whats_on_page) {
+            $featured_image_id = get_post_thumbnail_id($whats_on_page->ID);
+            $featured_image = get_core_image($featured_image_id, IMG_SIZE_LG, 'stretch card__img');
+
+            $site_details[] = array(
+                'name' => get_blog_details($site_id)->blogname,
+                'url' => get_blog_details($site_id)->siteurl . "/" . WHATS_ON_URL_PREFIX,
+                'featured_image' => $featured_image,
+                'logo' => get_core_image(intval(get_theme_mod('custom_logo')), IMG_SIZE_SM, 'card__img-logo'),
+            );
+        }
+
+        restore_current_blog();
+    }
+    $posts = $site_details;
 }
 
 $block_args = [
@@ -42,7 +60,6 @@ $block_args = [
 ];
 get_template_part('components/block', 'start', $block_args);
 get_template_part('components/block', 'header', ['class' => 'container']);
-switch_to_blog(1);
 ?>
 <div class="container" data-animate>
     <div class="layout-stairs">
@@ -70,14 +87,14 @@ switch_to_blog(1);
                 $logo = $post['logo'];
 
                 $card_args = [
-                    'image' => $image . "<div class='stretch curtain'></div>" . $logo,
+                    'image' => $image . $logo,
                     'title' => $title,
                     'content' => '',
                     'card_link' => $link,
-                    'card_link_target' => '_blank',
                     'image_holder_class' => 'card__img-holder--restrict'
                 ];
             }
+
 
             echo "<div class='layout-stairs__item' data-animate='up'>";
             get_template_part('components/card', null, $card_args);
@@ -88,6 +105,6 @@ switch_to_blog(1);
 </div>
 
 <?php
-restore_current_blog();
 get_template_part('components/block', 'footer', ['class' => 'container']);
 get_template_part('components/block', 'end');
+restore_current_blog();

@@ -154,7 +154,7 @@
 	--card-radius: 0;
 
 	// Other
-	--curtain-background-color: hsl(var(--hsl-dark) / 0.25);
+	--curtain-background-color: hsl(0, 0%, 0%, 0.3);
 
 	--label-font-size: inherit;
 
@@ -203,7 +203,7 @@
 
 		--table-border-color-accent: var(--color-white);
 
-		--curtain-background-color: hsl(var(--hsl-white) / 0.25);
+		// --curtain-background-color: hsl(var(--hsl-white) / 0.25);
 
 		--overlay-menu-color: var(--color-white);
 		--overlay-menu-background-color: var(--color-dark);
