@@ -98,7 +98,7 @@ foreach ($venues as $index => $post) : setup_postdata($post);
         $gallery = get_field('gallery');
         if ($gallery) {
             $gallery_img_ids = $featured_img_id . "," . implode(',', $gallery);
-            $gallery_shortcode = do_shortcode(sprintf('[gallery ids="%s" columns="1" size="' . IMG_SIZE_XL . '" link="none"]', esc_attr($gallery_img_ids)));
+            $gallery_shortcode = do_shortcode(sprintf('[gallery ids="%s" columns="1" size="' . IMG_SIZE_XL . '"]', esc_attr($gallery_img_ids)));
             $gallery = "<div class='stretch'>$gallery_shortcode</div>";
             $card_args['image'] = $gallery;
         }
@@ -136,7 +136,7 @@ get_template_part('components/block', 'start', $block_args);
     <div class="layout-overflow overflow-hidden">
         <?php get_template_part('components/block', 'header', ['class' => 'layout-overflow__header container']); ?>
         <div class="layout-overflow__body">
-            <div class=" layout-overflow__content">
+            <div class="layout-overflow__content">
                 <?= $venue_content ?>
             </div>
         </div>

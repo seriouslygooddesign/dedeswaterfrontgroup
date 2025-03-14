@@ -4,7 +4,7 @@ $args = wp_parse_args(
     [
         'image' => null,
         'image_id' => get_post_thumbnail_id(),
-        'image_holder_class' => "ratio-16-9",
+        'image_holder_class' => '',
         'title' => get_the_title(),
         'title_tag' => 'h3',
         'title_extra_class' => 'h4',

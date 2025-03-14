@@ -32,8 +32,9 @@
 			column-gap: var(--element-spacer-sm);
 			&-img {
 				grid-area: logo;
-				max-height: 6em;
-				width: auto;
+				padding-left: 2em;
+				width: 100%;
+				max-width: 10em;
 			}
 			& > * {
 				&:not(.card__title):not(.card__content-img) {
@@ -91,12 +92,13 @@
 			}
 		}
 		&-holder {
+			position: relative;
 			margin: var(--element-spacer-sm);
 			overflow: hidden;
 			z-index: 1;
+			min-height: min(25vh, 325px);
 
 			&--restrict {
-				position: relative;
 				min-height: min(50vh, 650px);
 			}
 			.swiper {
@@ -118,8 +120,8 @@
 		}
 	}
 	&--row {
-		display: grid;
 		@include bp(md) {
+			display: grid;
 			grid-template-columns: 2fr 3fr;
 		}
 	}

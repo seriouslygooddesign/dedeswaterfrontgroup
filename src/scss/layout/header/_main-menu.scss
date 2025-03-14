@@ -173,6 +173,7 @@
 				color: var(--color-dark);
 				border: 2px solid var(--color-white);
 				border-radius: var(--header-height);
+				box-shadow: 0 0 var(--border-width) var(--color-light);
 				gap: 0.25em;
 				.main-menu {
 					&__item {

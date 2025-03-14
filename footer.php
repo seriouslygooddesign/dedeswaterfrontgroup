@@ -13,8 +13,10 @@
 			}
 			?>
 		</div>
-		<div class="section-pt">
-			<h2 class="text-center" data-animate>Discover Dedes Venues</h2>
+		<div class="section-pt" data-animate>
+			<div class="horizontal-line">
+				<h2 class="text-center horizontal-line__item" data-animate>Discover Dedes Venues</h2>
+			</div>
 			<br>
 			<?php get_template_part('components/sites'); ?>
 		</div>
