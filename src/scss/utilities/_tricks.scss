@@ -243,5 +243,6 @@
 	inset: 0;
 	top: 0;
 	left: 0;
-	background: linear-gradient(180deg, var(--color-primary) 1%, transparent 30%);
+	pointer-events: none;
+	background: linear-gradient(180deg, var(--color-primary) 1%, transparent 50%);
 }
