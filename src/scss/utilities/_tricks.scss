@@ -236,3 +236,12 @@
 		min-height: 800px;
 	}
 }
+
+.wpgmza_map::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	top: 0;
+	left: 0;
+	background: linear-gradient(180deg, var(--color-primary) 1%, transparent 30%);
+}
