@@ -12,9 +12,22 @@ switch ($venues_type) {
             while (have_rows('venues_custom_content')) {
                 the_row();
                 $venue = get_sub_field('venue');
-                if (isset($venue[0])) {
-                    $venue[0]->post_content = get_sub_field('content');
-                    $venues[] = $venue[0];
+                if ($venue) {
+                    $custom_fields = get_sub_field('custom_fields');
+
+                    $field_mappings = [
+                        'gallery' => 'custom_gallery',
+                        'title'   => 'post_title',
+                        'content' => 'post_content'
+                    ];
+
+                    foreach ($field_mappings as $field => $property) {
+                        if (in_array($field, $custom_fields)) {
+                            $venue->$property = get_sub_field($field);
+                        }
+                    }
+
+                    $venues[] = $venue;
                 }
             }
         }
@@ -33,13 +46,11 @@ if (!$venues) return;
 $lax_id = wp_unique_id();
 $layout_overlap = get_sub_field('layout') === 'rows';
 $venue_content = $venue_content_before = $venue_content_after = null;
-$featured_imgs = null;
 
 foreach ($venues as $index => $post) : setup_postdata($post);
-    $featured_img_id = get_post_thumbnail_id();
-    $featured_img_variables = "--_overlap-mask-gradient: var(--_overlap-mask-gradient-$index)";
-    $featured_img = get_core_image($featured_img_id, IMG_SIZE_3XL, 'layout-overlap__img stretch', true, true, ['style' => $featured_img_variables]);
-    $featured_imgs .= $featured_img;
+    $custom_gallery = $post->custom_gallery;
+    $featured_img_id = $custom_gallery ? $custom_gallery[0] : get_post_thumbnail_id();
+    $featured_img = get_core_image($featured_img_id, IMG_SIZE_3XL, 'layout-overlap__img stretch d-none d-md-block');
 
     $venue_link = get_field('link');
     $venue_secondary_link = get_field('secondary_link');
@@ -95,14 +106,15 @@ foreach ($venues as $index => $post) : setup_postdata($post);
 
         $card_args['footer_content'] = "<div class='row align-items-center gy-4'>$left$right</div>";
 
-        $gallery = get_field('gallery');
+        $gallery = $custom_gallery ?: get_field('gallery');
         if ($gallery) {
             $gallery_img_ids = $featured_img_id . "," . implode(',', $gallery);
             $gallery_shortcode = do_shortcode(sprintf('[gallery ids="%s" columns="1" size="' . IMG_SIZE_XL . '"]', esc_attr($gallery_img_ids)));
             $gallery = "<div class='stretch'>$gallery_shortcode</div>";
             $card_args['image'] = $gallery;
         }
-        $venue_content_before = "<div class='layout-overlap__item'><div class='layout-overlap__inner container'><div class='layout-overlap__card'>";
+        $active_class = $index === 0 ? ' active' : null;
+        $venue_content_before = "<div class='layout-overlap__item$active_class'>$featured_img<div class='layout-overlap__inner container'><div class='layout-overlap__card'>";
         $venue_content_after = "</div></div></div>";
     }
 
@@ -124,9 +136,6 @@ get_template_part('components/block', 'start', $block_args);
 <?php if ($layout_overlap): ?>
     <div class="layout-overlap" style="--_min-height: <?= count($venues) ?>00vh;" data-lax-effect-bands>
         <div class="layout-overlap__body">
-            <div class="layout-overlap__images stretch d-none d-md-block">
-                <?= $featured_imgs ?>
-            </div>
             <div class="layout-overlap__content">
                 <?= $venue_content ?>
             </div>

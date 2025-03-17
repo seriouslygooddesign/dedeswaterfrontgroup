@@ -39,7 +39,7 @@
 	//Generate --h variables from h6 to h2
 	$min: 1.125rem;
 	$max: 1.25rem;
-	$min-scale: 1.125;
+	$min-scale: 1.08;
 	$max-scale: 1.36;
 	$i: 6;
 	@while $i >= 2 {
@@ -48,7 +48,7 @@
 		$max: $max * $max-scale;
 		$i: $i - 1;
 	}
-	--h1: #{clamp-smart(2.5rem, 5.6rem)};
+	--h1: #{clamp-smart(2rem, 5.6rem)};
 	--display-1: #{clamp-smart(8rem, 31.25rem)};
 
 	--fs-xs: 0.75em;

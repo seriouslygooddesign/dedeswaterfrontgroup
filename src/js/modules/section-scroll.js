@@ -19,6 +19,11 @@ export function sectionScroll() {
 			if (targetElement) {
 				targetElement.scrollIntoView({ behavior: "smooth" });
 			}
+
+			// Scroll to link on mobile within the scrollbar
+			const container = trigger.closest(".section-navigation__list");
+			const scrollLeft = trigger.getBoundingClientRect().left - container.getBoundingClientRect().x;
+			container.scrollLeft += scrollLeft;
 		});
 	});
 

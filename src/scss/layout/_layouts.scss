@@ -110,6 +110,8 @@
 			justify-content: center;
 		}
 		&__item {
+			--_card-translate: 0 50%;
+			--_img-translate: 0 -100%;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -118,14 +120,16 @@
 			z-index: 1;
 			opacity: 0;
 			visibility: hidden;
-			translate: 0 -2em;
 			transition: translate var(--transition), opacity var(--transition), visibility var(--transition);
 			&.active {
+				--_card-translate: 0 0;
+				--_img-translate: 0 0;
 				opacity: 1;
 				translate: 0;
 				visibility: visible;
-				~ * {
-					translate: 0 2em;
+				+ * {
+					--_card-translate: 0 -50%;
+					--_img-translate: 0 100%;
 				}
 			}
 		}
@@ -133,10 +137,13 @@
 			z-index: 0;
 		}
 		&__img {
-			mask-image: var(--_overlap-mask-gradient);
+			translate: var(--_img-translate);
+			transition: translate var(--transition);
 			scale: var(--_overlap-scale);
 		}
 		&__card {
+			translate: var(--_card-translate);
+			transition: translate var(--transition);
 			background: var(--color-white);
 		}
 	}

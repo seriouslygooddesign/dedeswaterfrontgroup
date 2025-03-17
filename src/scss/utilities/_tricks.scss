@@ -1,7 +1,7 @@
 .text-offset {
 	--_text-offset-translate: 0 -100%;
-	grid-column: 2;
-	grid-row: 2;
+	display: block;
+	translate: 100%;
 	text-align: left !important;
 	&-first-part {
 		--_text-offset-translate: 0 100%;
@@ -19,7 +19,8 @@
 	}
 
 	*:has(> &) {
-		display: grid;
+		// display: grid;
+		padding-right: 50%;
 		text-align: right !important;
 		grid-template-columns: 1fr 1fr;
 		opacity: 0;
@@ -164,12 +165,12 @@
 		display: flex;
 		top: 0;
 		margin-block: 0;
+		pointer-events: visible;
 		@include reset-list;
 		@include bp(md, max) {
 			--button-height: 2.5em;
 			--button-px: 0.5em;
 			--_size: 1px;
-			column-gap: var(--element-spacer-sm);
 			width: max-content;
 			max-width: calc(100% - var(--viewport-border-width) * 2 - var(--container-spacer) * 2);
 			top: calc(100% - var(--button-height) - var(--viewport-border-width) - var(--element-spacer) + 2px);
@@ -178,6 +179,7 @@
 			outline: var(--border-width) solid var(--color-white);
 			border-radius: 10rem;
 			padding: 0;
+			scroll-behavior: smooth;
 		}
 		@include bp(md) {
 			height: 100vh;
@@ -197,6 +199,9 @@
 		@include bp(md, max) {
 			--button-background-color: var(--color-dark);
 			--button-color: var(--color-white);
+			--button-fs: var(--fs-xs);
+			--button-py: 1em;
+			--button-px: 1.5em;
 			white-space: nowrap;
 			@include button;
 			&:not(.active) {

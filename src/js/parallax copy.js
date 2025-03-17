@@ -33,12 +33,19 @@ const handlerLax = () => {
 							if (currentVal > 0.5) {
 								lastActiveIndex = index;
 							}
+
+							const gradient = generateGradient(currentVal);
+							if (index !== 0) {
+								el.style.setProperty(`--_overlap-mask-gradient-${index}`, gradient);
+							}
 						});
+
 						items.forEach((item, index) => {
-							item.classList.toggle(
-								"active",
-								lastActiveIndex === -1 ? index === 0 : index === lastActiveIndex
-							);
+							if (index === lastActiveIndex) {
+								item.classList.add("active");
+							} else {
+								item.classList.remove("active");
+							}
 						});
 					},
 				},
