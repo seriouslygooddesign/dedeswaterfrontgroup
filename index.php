@@ -26,7 +26,7 @@ if (is_author()) {
 					'footer_content' => "<p class='hstack gap-2 align-items-center'>" . get_core_icon('calendar') . get_the_date() . "</p>",
 				]
 			?>
-				<div class="layout-stairs__item" data-animate>
+				<div class="layout-stairs__item" data-animate='up'>
 					<?php get_template_part('components/card', null, $card_args); ?>
 				</div>
 			<?php endwhile; ?>

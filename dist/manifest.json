@@ -6,7 +6,7 @@
   "sprite.js": "/dist/sprite/sprite.1808ba0add18409de5be.js",
   "admin.css": "/dist/admin/admin.2a4435093b6ebba75a0c.css",
   "admin.js": "/dist/admin/admin.53173798843d38baf2f0.js",
-  "parallax.js": "/dist/parallax/parallax.8e58b140c36d33f8410a.js",
+  "parallax.js": "/dist/parallax/parallax.9ea76a06843f06352942.js",
   "main.css.map": "/dist/main/main.b19a923a067964f56eac.css.map",
   "main.js.map": "/dist/main/main.02d8e75b6b8e7dce1d5b.js.map",
   "swiper.css.map": "/dist/swiper/swiper.60efe0f71fb5557d5fba.css.map",
@@ -14,5 +14,5 @@
   "sprite.js.map": "/dist/sprite/sprite.1808ba0add18409de5be.js.map",
   "admin.css.map": "/dist/admin/admin.2a4435093b6ebba75a0c.css.map",
   "admin.js.map": "/dist/admin/admin.53173798843d38baf2f0.js.map",
-  "parallax.js.map": "/dist/parallax/parallax.8e58b140c36d33f8410a.js.map"
+  "parallax.js.map": "/dist/parallax/parallax.9ea76a06843f06352942.js.map"
 }

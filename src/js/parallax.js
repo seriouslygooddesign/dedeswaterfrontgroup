@@ -53,7 +53,7 @@ const handlerLax = () => {
 				[0, 1],
 				{
 					cssFn: (val, el) => {
-						el.style.setProperty(`--_translate`, `${val * 100}%`);
+						el.querySelector(".layout-overflow__body").style.setProperty(`--_translate`, `${val * 100}%`);
 					},
 				},
 			],
