@@ -57,8 +57,8 @@
                 "id": ""
             },
             "choices": {
-                "columns": "Columns",
-                "rows": "Rows"
+                "columns": "Multiple Slides",
+                "rows": "Single Slide"
             },
             "default_value": "",
             "return_format": "value",
@@ -378,5 +378,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742222265
+    "modified": 1742312741
 }
