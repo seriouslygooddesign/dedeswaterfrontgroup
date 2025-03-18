@@ -25,7 +25,7 @@ $swiper_parameters = json_encode([
 ]);
 ?>
 <div class="row g-0 min-height-full">
-    <div class="col-md-6 pos-rel section-py d-flex has-bg overflow-hidden align-items-center">
+    <div class="col-md-6 pos-rel section-py d-flex has-bg align-items-center">
         <?php get_template_part('components/background') ?>
         <div class="container-sm" data-animate>
             <?php get_template_part('components/block', 'header'); ?>

@@ -50,7 +50,7 @@ $venue_content = $venue_content_before = $venue_content_after = null;
 foreach ($venues as $index => $post) : setup_postdata($post);
     $custom_gallery = $post->custom_gallery;
     $featured_img_id = $custom_gallery ? $custom_gallery[0] : get_post_thumbnail_id();
-    $featured_img = get_core_image($featured_img_id, IMG_SIZE_3XL, 'layout-overlap__img stretch d-none d-md-block');
+    $featured_img = get_core_image($featured_img_id, IMG_SIZE_3XL, 'layout-overlap__img stretch d-none d-md-block', true, false);
 
     $venue_link = get_field('link');
     $venue_secondary_link = get_field('secondary_link');
@@ -97,7 +97,7 @@ foreach ($venues as $index => $post) : setup_postdata($post);
         $card_args['title'] = $vanue_link_args ? get_core_link($vanue_link_args, null) : get_the_title();
         $card_args['content'] = apply_filters('the_content', get_the_content());
 
-        $vanue_link_args['title'] = 'Visit Vebsite';
+        $vanue_link_args['title'] = 'Visit Website';
 
         $venue_link_output = get_core_link($vanue_link_args, null, '<div class="col-auto uppercase">', '</div>');
         $venue_address_output = get_core_link($venue_address_args, null, '<div class="col-auto hstack align-items-center gap-1">' . get_core_icon('pin') . '', '</div>');

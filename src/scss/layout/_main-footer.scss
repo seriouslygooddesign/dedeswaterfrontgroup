@@ -9,7 +9,7 @@
 
 		padding: 0;
 		.menu-item {
-			margin-top: calc(var(--element-spacer) / 1.25);
+			margin-top: var(--element-spacer);
 		}
 		.menu-link {
 			text-transform: uppercase;

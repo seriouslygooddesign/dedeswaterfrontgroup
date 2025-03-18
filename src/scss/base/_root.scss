@@ -83,7 +83,7 @@
 	/*
   Elements
   */
-	--header-height: #{clamp-smart(3.5rem, 9.375rem, 768px, 1920px)};
+	--header-height: #{clamp-smart(3.5rem, 9.375rem, 1200px, 1920px)};
 
 	--text-color: hsl(var(--hsl-white));
 	--text-color-opposite: hsl(var(--hsl-dark));

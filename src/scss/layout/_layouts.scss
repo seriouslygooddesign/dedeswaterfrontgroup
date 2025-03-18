@@ -120,12 +120,11 @@
 			z-index: 1;
 			opacity: 0;
 			visibility: hidden;
-			transition: translate var(--transition), opacity var(--transition), visibility var(--transition);
+			transition: opacity var(--transition), visibility var(--transition);
 			&.active {
 				--_card-translate: 0 0;
 				--_img-translate: 0 0;
 				opacity: 1;
-				translate: 0;
 				visibility: visible;
 				+ * {
 					--_card-translate: 0 -50%;
@@ -138,12 +137,12 @@
 		}
 		&__img {
 			translate: var(--_img-translate);
-			transition: translate var(--transition);
+			transition: translate 0.7s;
 			scale: var(--_overlap-scale);
 		}
 		&__card {
 			translate: var(--_card-translate);
-			transition: translate var(--transition);
+			transition: translate 0.7s;
 			background: var(--color-white);
 		}
 	}

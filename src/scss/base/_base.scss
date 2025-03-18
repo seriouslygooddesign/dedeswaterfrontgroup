@@ -27,7 +27,7 @@ html::after {
 }
 
 body {
-	margin: var(--viewport-border-width);
+	margin: 0 var(--viewport-border-width) var(--viewport-border-width);
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: rgba(black, 0);
 	accent-color: var(--color-primary);

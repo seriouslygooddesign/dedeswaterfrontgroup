@@ -23,7 +23,7 @@ if (is_author()) {
 				];
 				$card_args = [
 					'content' => false,
-					'footer_content' => "<div class='hstack gap-2 align-items-center'>" . get_core_icon('calendar') . get_the_date() . "</div>",
+					'footer_content' => "<p class='hstack gap-2 align-items-center'>" . get_core_icon('calendar') . get_the_date() . "</p>",
 				]
 			?>
 				<div class="layout-stairs__item" data-animate>

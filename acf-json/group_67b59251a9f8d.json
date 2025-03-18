@@ -1,6 +1,6 @@
 {
     "key": "group_67b59251a9f8d",
-    "title": "Content Block - Categorized Content",
+    "title": "Content Block - Content Groups",
     "fields": [
         {
             "key": "field_67b59251b3a93",
@@ -22,7 +22,7 @@
         },
         {
             "key": "field_67b59251baff2",
-            "label": "Categories",
+            "label": "",
             "name": "categories",
             "aria-label": "",
             "type": "repeater",
@@ -196,5 +196,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1741264019
+    "modified": 1742292712
 }

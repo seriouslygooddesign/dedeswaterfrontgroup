@@ -8,14 +8,10 @@ if (!$venues) return; ?>
     <div class="row g-4 row-cols-sm-2 row-cols-lg-4">
         <?php
         foreach ($venues as $post) : setup_postdata($post);
-            $link = [
-                'title' => get_the_title(),
-                'url' => get_field('link'),
-                'target' => '_blank',
-            ];
             $args = array(
                 'image_id' => get_post_thumbnail_id(),
-                'card_link' => $link['url'],
+                'card_link' => get_field('link'),
+                'card_link_target' => '_blank',
                 'title_extra_class' => 'h6',
                 'content' => apply_filters('the_content', get_the_excerpt()),
             ); ?>

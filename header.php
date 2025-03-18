@@ -105,15 +105,15 @@ $has_overlay_menu = $has_main_menu || $has_secondary_menu || $has_tertiary_menu;
 
 
 				<div class="col-auto col-lg order-3">
-					<div class="row align-items-center justify-content-end gx-xl-6">
+					<div class="row align-items-center justify-content-end gx-3 gx-xl-6">
 						<?php
 						if ($has_tertiary_menu) {
 							wp_nav_menu(
 								[
 									'main_menu' => true, //Custom parameter for inc/main-menu.php
 									'theme_location' => $tertiary_menu_slug,
-									'container' => false,
-									'menu_class' => 'hide-on-overlay-menu col-auto',
+									'container'       => 'div',
+									'container_class' => 'hide-on-overlay-menu col-auto',
 								]
 							);
 						}

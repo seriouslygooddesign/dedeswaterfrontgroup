@@ -11,6 +11,7 @@ import { dropdown } from "./modules/dropdown";
 import { popup } from "./modules/popup";
 import { sectionScroll } from "./modules/section-scroll";
 import { textOffset } from "./modules/text-offset";
+import { headroom } from "./modules/headroom";
 
 overlayMenu();
 
@@ -33,3 +34,5 @@ popup();
 sectionScroll();
 
 textOffset();
+
+headroom();
