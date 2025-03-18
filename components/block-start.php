@@ -29,11 +29,11 @@ $content_class = get_core_filter_implode([
 $block_id = get_sub_field('block_id');
 $id = $block_id ? ' id="' . esc_attr($block_id) . '"' : null;
 ?>
-<div<?= $id; ?> class="<?= $outer_class ?>" <?= $attr ?>>
+<div<?= $id; ?> class="<?= $outer_class ?>">
     <?php
     if ($background) {
         get_template_part('components/background');
     }
     ?>
     <?= $decorative_text ? "<span class='bg-text display-1' data-lax-translate-easy>$decorative_text</span>" : null; ?>
-    <div class="<?= $content_class; ?>">
+    <div class="<?= $content_class; ?>" <?= $attr ?>>
