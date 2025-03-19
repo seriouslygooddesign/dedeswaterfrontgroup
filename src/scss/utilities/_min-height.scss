@@ -14,6 +14,7 @@
 	&-full {
 		min-height: 100vh;
 	}
+
 	&-custom {
 		@include device-input("mouse") {
 			min-height: 300vh;

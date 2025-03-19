@@ -97,7 +97,6 @@
 			overflow: hidden;
 			z-index: 1;
 			min-height: min(25vh, 325px);
-
 			&--restrict {
 				min-height: min(50vh, 650px);
 			}
@@ -114,6 +113,7 @@
 			position: absolute;
 			left: 50%;
 			top: 50%;
+			max-width: 40%;
 			translate: -50% -50%;
 			filter: brightness(0) invert(1);
 			height: auto;

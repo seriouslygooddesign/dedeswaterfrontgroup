@@ -11,6 +11,9 @@
 	&-center {
 		align-self: center;
 	}
+	&-start {
+		align-self: start;
+	}
 }
 
 .justify-content {
@@ -104,6 +107,12 @@
 .pos-sticky {
 	position: sticky;
 	top: 0;
+	&-md {
+		@extend .pos-sticky;
+		@include bp(md, max) {
+			position: relative;
+		}
+	}
 }
 
 .rounded-image {
@@ -116,14 +125,16 @@
 	text-transform: uppercase;
 }
 
-.element-sticky {
-	position: sticky;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	max-height: 100vh;
-	&:is([sizes="auto" i], [sizes^="auto," i]) {
-		contain-intrinsic-size: none;
+.element {
+	&-sticky {
+		position: sticky;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		max-height: 100vh;
+		&:is([sizes="auto" i], [sizes^="auto," i]) {
+			contain-intrinsic-size: none;
+		}
 	}
 }
 
