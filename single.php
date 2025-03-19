@@ -11,7 +11,7 @@ while (have_posts()) :
 				<div class="container-sm text-center section-py" data-animate="">
 					<div class="">
 						<?php if ($post_type_post): ?>
-							<a href="<?= esc_url(get_permalink(get_option('page_for_posts'))) ?>" class="hstack justify-content-center align-items-center gap-3"><?= get_core_icon('arrow', 'rotate-180 fs-lg') . get_the_date(); ?></a>
+							<a href="<?= esc_url(get_permalink(get_option('page_for_posts'))) ?>" class="hstack justify-content-center align-items-center gap-3"><?= get_core_icon('arrow', 'rotate-180 fs-lg') . 'Back to News & Media'; ?></a>
 						<?php endif ?>
 
 						<h1><?= get_the_title() ?></h1>
