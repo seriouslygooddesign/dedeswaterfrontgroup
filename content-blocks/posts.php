@@ -11,6 +11,7 @@ $args = wp_parse_args($args, [
     'post__in' => $feed_type_select_posts ? $selected_posts : [],
     'taxonomy' => $feed_type_latest_by_category ? 'category' : null,
     'terms' => $feed_type_latest_by_category ? $selected_categories : null,
+    'background_gradient' => false,
     'title' => null,
     'card_component_name' => 'card',
     'class' => null,
@@ -50,10 +51,12 @@ $posts = get_posts($posts_args);
 if (empty($posts)) return;
 
 $block_args = [
-    'class' => $class
+    'class' => $class,
+    'background_gradient' => $background_gradient
 ];
 get_template_part('components/block', 'start', $block_args);
 ?>
+
 <div class="container">
     <?php if (get_sub_field('block_header_show')) : ?>
         <?php get_template_part('components/block', 'header'); ?>

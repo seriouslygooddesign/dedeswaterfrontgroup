@@ -8,7 +8,7 @@ while (have_posts()) :
 		<div class="col-md-6 pos-sticky-md align-self-start">
 			<div class="min-height-full section-py d-flex align-items-center">
 				<?php get_template_part('components/background-image', null, ['img_id' => get_post_thumbnail_id(), 'curtain' => true]) ?>
-				<div class="container-sm text-center section-py" data-animate="">
+				<div class="container-sm text-center section-py" data-animate="up">
 					<div class="">
 						<?php if ($post_type_post): ?>
 							<a href="<?= esc_url(get_permalink(get_option('page_for_posts'))) ?>" class="hstack justify-content-center align-items-center gap-3"><?= get_core_icon('arrow', 'rotate-180 fs-lg') . 'Back to News & Media'; ?></a>
@@ -24,12 +24,12 @@ while (have_posts()) :
 			</div>
 		</div>
 		<div class="col-md-6 pos-rel section-py d-flex align-items-center">
-			<div class="container-sm" data-animate="">
+			<div class="container-sm" data-animate="up">
 				<?php the_content(); ?>
 			</div>
 		</div>
 	</div>
 <?php
 endwhile;
-get_template_part('content-blocks/posts', null, ['class' => 'section-py']);
+get_template_part('content-blocks/posts', null, ['class' => 'section-py', 'background_gradient' => true]);
 get_footer();

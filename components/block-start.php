@@ -7,6 +7,7 @@ $args = wp_parse_args(
         'class' => '',
         'attr' => '',
         'background' => true,
+        'background_gradient' => false,
         'decorative_text' => get_sub_field('block_header_show') ? get_sub_field('decorative_text') ?? null : null,
     ]
 );
@@ -35,5 +36,6 @@ $id = $block_id ? ' id="' . esc_attr($block_id) . '"' : null;
         get_template_part('components/background');
     }
     ?>
+    <?= $background_gradient ? "<div class='stretch bg-gradient-dark'></div>" : null; ?>
     <?= $decorative_text ? "<span class='bg-text display-1' data-lax-translate-easy>$decorative_text</span>" : null; ?>
     <div class="<?= $content_class; ?>" <?= $attr ?>>
