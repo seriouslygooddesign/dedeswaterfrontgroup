@@ -67,6 +67,7 @@ function exclude_post_type_from_link_builder($query)
     $cpts_to_remove = [
         'main-popup',
         'global-content-block',
+        'testimonial',
     ];
     foreach ($cpts_to_remove as $cpt) {
         $key = array_search($cpt, $query['post_type']);

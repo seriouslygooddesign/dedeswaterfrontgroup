@@ -1,54 +1,54 @@
 .main-popup {
-  --popup-spacer: var(--container-spacer);
-  --popup-max-width: 40rem;
-  --popup-transition: var(--transition);
-  --popup-curtain-background-color: var(--curtain-background-color);
-  --popup-background-color: var(--color-white);
-  --popup-border-radius: var(--border-radius);
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--popup-transition), visibility var(--popup-transition);
-  padding: var(--popup-spacer);
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  &__curtain {
-    background-color: var(--popup-curtain-background-color);
-    position: absolute;
-    inset: 0;
-  }
-  &__main {
-    border-radius: var(--popup-border-radius);
-    background-color: var(--popup-background-color);
-    margin: 0 auto;
-    width: 100%;
-    max-height: 100%;
-    max-width: var(--popup-max-width);
-    position: relative;
-    z-index: 1;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-  &__title-wrap {
-    padding: var(--popup-spacer) 0 0 var(--popup-spacer);
-  }
-  &__body {
-    padding: 0 var(--popup-spacer) var(--popup-spacer) var(--popup-spacer);
-    > :first-child {
-      margin-top: 0;
-    }
-    > :last-child {
-      margin-bottom: 0;
-    }
-  }
-  &__close-button {
-    --button-background-color: transparent;
-    --button-background-color-hover: transparent;
-    --button-color: currentColor;
-    --button-color-hover: currentColor;
-  }
+	--popup-spacer: var(--container-spacer);
+	--popup-max-width: 40rem;
+	--popup-transition: var(--transition);
+	--popup-curtain-background-color: var(--curtain-background-color);
+	--popup-background-color: var(--color-primary);
+	--popup-border-radius: var(--border-radius);
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--popup-transition), visibility var(--popup-transition);
+	padding: var(--header-height) var(--popup-spacer);
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	&__curtain {
+		background-color: var(--popup-curtain-background-color);
+		position: absolute;
+		inset: 0;
+	}
+	&__main {
+		border-radius: var(--popup-border-radius);
+		background-color: var(--popup-background-color);
+		margin: 0 auto;
+		width: 100%;
+		max-height: 100%;
+		max-width: var(--popup-max-width);
+		position: relative;
+		z-index: 1;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+	}
+	&__title-wrap {
+		padding: var(--popup-spacer) 0 0 var(--popup-spacer);
+	}
+	&__body {
+		padding: 0 var(--popup-spacer) var(--popup-spacer) var(--popup-spacer);
+		> :first-child {
+			margin-top: 0;
+		}
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+	&__close-button {
+		--button-background-color: transparent;
+		--button-background-color-hover: transparent;
+		--button-color: currentColor;
+		--button-color-hover: currentColor;
+	}
 }
